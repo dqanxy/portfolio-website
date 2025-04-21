@@ -4,14 +4,28 @@ import { faArrowsUpDown } from '@fortawesome/free-solid-svg-icons';
 import StarCanvas from './StarCanvas';
 import './StarCanvasContainer.css'; // Import your CSS file for styles
 import AnimatedStarBackground from './AnimatedStarBackground';
+import Body from './Body';
 
 const StarCanvasContainer = () => {
     const canvasRef = useRef(null);
     const [height, setHeight] = useState(200); // Initial height of the canvas
+    const [isVisible, setIsVisible] = useState(false); // State to control visibility of the body
+
+    const [star, setStar] = useState({
+        headerText: "Welcome to My Portfolio!",
+        subtitleText: "Explore with the map above, or read below!",
+        titleText: "Hey there!",
+        bodyText: "Todo!",
+    }); // State to hold the star object
 
     const toggleHeight = () => {
         setHeight((prevHeight) => (prevHeight === 200 ? 400 : 200)); // Toggle between 200px and 400px
     };
+
+    const changeStar = (newStar) => {
+        setStar(newStar); // Update the star state with the new star object
+        setIsVisible(false);
+    }
 
 
     return (
@@ -25,7 +39,7 @@ const StarCanvasContainer = () => {
                         border: '1px solid black',
                     }}>
                                 
-                    <StarCanvas/>
+                    <StarCanvas callback={setStar.bind(this)}/>
                 </div>
 
             </div>
@@ -38,6 +52,7 @@ const StarCanvasContainer = () => {
                     <FontAwesomeIcon icon={faArrowsUpDown} />
                 </button>
             </div>
+            <Body isVisible={isVisible} headerText={star.headerText} subtitleText={star.subtitleText} titleText={star.titleText} bodyText={star.bodyText} />
         </div>
         
     );

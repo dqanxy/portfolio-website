@@ -16,6 +16,11 @@ class Star {
 
         this.tooltip = "Welcome!";
         this.tooltip_alpha = 0;
+
+        this.bodyText = "Hello World!";
+        this.headerText = "Welcome to My Portfolio!";
+        this.subtitleText = "Explore with the map above, or read below!";
+        this.titleText = "Hey there!";
     }
 
     render(context) {
@@ -118,6 +123,7 @@ class Star {
 
             if(globalState.mouse_release) {
                 this.targetting = true
+                globalState.callback(this);
             }
 
 

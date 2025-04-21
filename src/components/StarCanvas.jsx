@@ -26,11 +26,11 @@ export const globalState = {
     objects: []
 };
 
-const StarCanvas = () => {
+const StarCanvas = ({callback}) => {
     const canvasRef = useRef(null);
 
     globalState.objects = [new Star(0,0)]
-
+    globalState.callback = callback
 
     useEffect(() => {
         const handleMouseUp = () => {

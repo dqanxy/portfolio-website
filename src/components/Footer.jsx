@@ -6,7 +6,7 @@ const Footer = () => {
     // https://kilianvalkhof.com/2017/design/sloped-edges-with-consistent-angle-in-css/
     // https://codepen.io/JanickFischr/pen/BYvVqP
     return (
-        <footer className="bg-gray-800 text-white relative fix-height overflow-hidden">
+        <footer className="bg-gray-100 text-white relative fix-height overflow-hidden">
             
             <div className={'background-container -left-4'}>
                 <div className={'animated-background'}>
