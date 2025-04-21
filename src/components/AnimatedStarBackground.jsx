@@ -45,7 +45,7 @@ const AnimatedStarBackground = () => {
                     },
                     modes: {
                         push: {
-                            quantity: 4,
+                            quantity: 0,
                         },
                         repulse: {
                             distance: 0,
