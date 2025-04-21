@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import StarLink from "./StarLink";
 
 const Body = ({isVisible, headerText, subtitleText, titleText, bodyText }) => {
     const [headerVisible, setHeaderVisible] = useState(isVisible);
@@ -56,7 +57,9 @@ const Body = ({isVisible, headerText, subtitleText, titleText, bodyText }) => {
             >
                 <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-4">{titleText}</h2>
-                    <p className="text-gray-600">{bodyText}</p>
+                    <p className="text-gray-600">{bodyText}
+                         <StarLink text={"Click here!"} value={"test1"}/>
+                    </p>
                 </div>
             </div>
         </div>

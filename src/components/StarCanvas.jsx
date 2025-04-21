@@ -24,21 +24,34 @@ export const globalState = {
     mouse_down_x: 0,
     mouse_down_y: 0,
 
+    focused: "",
+
     objects: []
 };
 
 const StarCanvas = ({callback}) => {
     const canvasRef = useRef(null);
+    globalState.callback = callback
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const selectedParam = queryParams.get('selected'); // Replace 'selected' with your desired query parameter key
+    console.log('Selected Query Parameter:', selectedParam);
 
     if(globalState.objects.length === 0) {
 
-        globalState.objects = [new Star(0,0,2, "Hello World!"), new Star(-100,60,1, "Other Star!"), new Star(90,-15,1, "Another Star!")];
+        globalState.objects = [new Star(0,0,2, "main", "Hello World!"), new Star(-100,60,1, "test1", "Other Star!"), new Star(90,-15,1, "test2", "Another Star!")];
+        for (let i = 0; i < globalState.objects.length; i++) {
+            if(globalState.objects[i].name == selectedParam) {
+                globalState.objects[i].select();
+                break;
+            }
+        }
         globalState.objects = [new StarLine(0, 0, -100, 60), new StarLine(0, 0, 90, -15),
             ...globalState.objects
         ]
 
+
     }
-    globalState.callback = callback
 
     useEffect(() => {
         const handleMouseUp = () => {

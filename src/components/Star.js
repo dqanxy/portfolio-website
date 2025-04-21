@@ -2,14 +2,15 @@ import { globalState } from "./StarCanvas";
 
 class Star {
     
-    constructor(x, y, scale, bodyText, headerText, subtitleText, titleText) {
+    constructor(x, y, scale, name, bodyText, headerText, subtitleText, titleText) {
         this.x = x;
         this.y = y;
         this.scale = scale;
+        this.name = name;
         this.radius = 20 * scale;
         this.targetting = false;
 
-        this.angle = 10;
+        this.angle = Math.random() * 360;
 
         this.hover_timer = 0;
         this.rotation_direction = Math.random() < 0.5 ? 1 : -1;
@@ -107,6 +108,12 @@ class Star {
 
     }
 
+    select(){
+        this.targetting = true
+        globalState.focused = this.name
+        globalState.callback(this);
+    }
+
     update() {
         let displayX = this.x - globalState.camera_x + globalState.canvas_width / 2;
         let displayY = this.y - globalState.camera_y + globalState.canvas_height / 2;
@@ -127,8 +134,7 @@ class Star {
             this.tooltip_alpha = Math.min(this.tooltip_alpha + 0.05, 1)
 
             if(globalState.mouse_release) {
-                this.targetting = true
-                globalState.callback(this);
+                this.select()
             }
 
 
