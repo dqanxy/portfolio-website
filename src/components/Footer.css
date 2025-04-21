@@ -1,0 +1,69 @@
+
+.fix-height{
+    height:250px;
+}
+
+.background-container{
+    width: 110%;
+    height: 250px;
+    margin-top: 50px;
+    margin-left: -50px;
+    transform:rotate(-2deg);
+}
+
+.reshape-foreground{
+    height: 250px;
+    transform:rotate(2deg);
+}
+
+.animated-background {
+    color: #fff;
+    background: linear-gradient(-45deg, #0d2168, #611783, #11698a, #2b4293);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    
+    }
+  
+  .paused {
+    -webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
+    animation-play-state: paused;
+  }
+  
+  @-webkit-keyframes Gradient {
+    0% {
+    background-position: 0% 50%
+    }
+  50% {
+  background-position: 100% 50%
+  }
+  100% {
+  background-position: 0% 50%
+  }
+  }
+  
+  @-moz-keyframes Gradient {
+    0% {
+    background-position: 0% 50%
+    }
+  50% {
+  background-position: 100% 50%
+  }
+  100% {
+  background-position: 0% 50%
+  }
+  }
+  
+  @keyframes Gradient {
+    0% {
+    background-position: 0% 50%
+    }
+  50% {
+  background-position: 100% 50%
+  }
+  100% {
+  background-position: 0% 50%
+  }
+}
+  
