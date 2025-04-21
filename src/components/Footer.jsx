@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './Footer.css';
 
 const Footer = () => {
-    const [state, setState] = useState({
-        animationClass: 'animated-background'
-    });
     // Life savers! 
     // https://kilianvalkhof.com/2017/design/sloped-edges-with-consistent-angle-in-css/
     // https://codepen.io/JanickFischr/pen/BYvVqP
@@ -12,7 +9,7 @@ const Footer = () => {
         <footer className="bg-gray-800 text-white relative fix-height overflow-hidden">
             
             <div className={'background-container -left-4'}>
-                <div className={state.animationClass}>
+                <div className={'animated-background'}>
                     <div className="reshape-foreground">
                         <div className="container mx-auto py-8 px-4 text-center">
                             <h2 className="text-xl font-bold">Daniel Tian</h2>
