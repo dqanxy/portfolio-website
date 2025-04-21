@@ -9,12 +9,21 @@ class Star {
         this.targetting = false;
 
         this.angle = 10;
+
+        this.hover_timer = 0;
+        this.rotation_direction = Math.random() < 0.5 ? 1 : -1;
+        this.rotation_speed = 1;
+
+        this.tooltip = "Welcome!";
+        this.tooltip_alpha = 0;
     }
 
     render(context) {
 
         let displayX = this.x - globalState.camera_x + globalState.canvas_width / 2;
         let displayY = this.y - globalState.camera_y + globalState.canvas_height / 2;
+
+        if(displayX < 0 - 50 || displayX > globalState.canvas_width + 50 || displayY < -50 || displayY > globalState.canvas_height + 50) return
         
         let r1 = 4.0
         let r2 = 9.0
@@ -57,9 +66,35 @@ class Star {
         
         context.fillStyle = 'rgba(255, 255, 255, 0.8)'; // Set the fill color to white with 50% transparency
         context.fill();
-
         //context.fill();
         context.closePath();
+
+        if(this.tooltip_alpha > 0){
+            context.beginPath();
+            context.moveTo(displayX + 2, displayY + 2);
+            context.lineTo(displayX + 14, displayY + 14);
+            context.strokeStyle = `rgba(255, 255, 255, ${this.tooltip_alpha * .8})`; // Set the stroke color to white with dynamic transparency
+            context.stroke();
+            context.closePath();
+            
+            context.beginPath();
+            context.moveTo(displayX + 15, displayY + 15);
+            context.lineTo(displayX + 15, displayY + 45);
+            context.strokeStyle = `rgba(255, 255, 255, ${this.tooltip_alpha})`; // Set the stroke color to white with 50% transparency
+            context.stroke();
+            context.closePath();
+            
+            context.beginPath();
+            context.moveTo(displayX + 15, displayY + 15);
+            context.lineTo(displayX + 115, displayY + 15);
+            context.strokeStyle = `rgba(255, 255, 255, ${this.tooltip_alpha})`; // Set the stroke color to white with 50% transparency
+            context.stroke();
+            context.closePath();
+
+            context.fillStyle = `rgba(255, 255, 255, ${this.tooltip_alpha})`; 
+            context.fillText(this.tooltip, displayX + 25, displayY + 35);
+        }
+
     }
 
     update() {
@@ -69,11 +104,28 @@ class Star {
             globalState.mouse_x < displayX + this.radius &&
             globalState.mouse_y > displayY - this.radius &&
             globalState.mouse_y < displayY + this.radius) {
-            // If the mouse is over the star, change its color to yellow
+            
+            // On hover start
+            if(this.hover_timer == 0){
+                this.rotation_speed = 20;
+            }
+
+            this.hover_timer += 1
             globalState.clickable = true
+
+            this.rotation_speed = Math.max(this.rotation_speed * .97, 1)
+            this.tooltip_alpha = Math.min(this.tooltip_alpha + 0.05, 1)
+
             if(globalState.mouse_release) {
                 this.targetting = true
             }
+
+
+        }
+        else{
+            this.hover_timer = 0
+            this.rotation_speed = Math.max(this.rotation_speed * .985, 1)
+            this.tooltip_alpha = Math.max(this.tooltip_alpha - 0.05, 0)
         }
 
         // Move camera towards star
@@ -87,7 +139,7 @@ class Star {
             }
         }
         
-        this.angle += .3
+        this.angle += .3 * this.rotation_speed * this.rotation_direction
     }
 }
 
