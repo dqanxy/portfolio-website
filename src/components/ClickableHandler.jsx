@@ -15,27 +15,53 @@ const ClickableHandler = ({ style, children, onClick }) => {
         
         
         const handleMouseMove = (event) => {
+            event.preventDefault();
             const rect = canvas.getBoundingClientRect();
             globalState.mouse_x = event.clientX - rect.left;
             globalState.mouse_y = event.clientY - rect.top;
 
+            if(globalState.mouse_clicked) {
+                globalState.camera_x = globalState.previous_camera_x + (globalState.mouse_down_x - globalState.mouse_x);
+                globalState.camera_y = globalState.previous_camera_y + (globalState.mouse_down_y - globalState.mouse_y);
+            }
+
             setClickable(globalState.clickable);
         };
 
-        const handleMouseEnter = () => {
-            canvas.addEventListener('mousemove', handleMouseMove);
+        const handleMouseEnter = (event) => {
+            
+            event.preventDefault();
         };
 
         const handleMouseLeave = () => {
-            canvas.removeEventListener('mousemove', handleMouseMove);
             globalState.mouse_x = 0;
             globalState.mouse_y = 0;
         };
 
+        const handleMouseDown = (event) => {
+            
+            event.preventDefault();
+            globalState.mouse_clicked = true;
+            globalState.mouse_down = true;
+
+            globalState.mouse_down_x = globalState.mouse_x;
+            globalState.mouse_down_y = globalState.mouse_y;
+
+            globalState.previous_camera_x = globalState.camera_x;
+            globalState.previous_camera_y = globalState.camera_y;
+        };
+
+        
+
+        canvas.addEventListener('mousemove', handleMouseMove);
+
         canvas.addEventListener('mouseenter', handleMouseEnter);
         canvas.addEventListener('mouseleave', handleMouseLeave);
         
+        canvas.addEventListener('mousedown', handleMouseDown);
+        
         return () => {
+            canvas.removeEventListener('mousedown', handleMouseDown);
             canvas.removeEventListener('mouseenter', handleMouseEnter);
             canvas.removeEventListener('mouseleave', handleMouseLeave);
             canvas.removeEventListener('mousemove', handleMouseMove);

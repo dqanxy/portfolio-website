@@ -6,6 +6,7 @@ import StarCanvas from './components/StarCanvas';
 import StarCanvasContainer from './components/StarCanvasContainer';
 
 function App() {
+
   return (
     <div className="App">
       <Topbar />

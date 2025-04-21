@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowsUpDown } from '@fortawesome/free-solid-svg-icons';
 import ClickableHandler from './ClickableHandler';
+import Star from './Star';
 
 let frameCount = 0; // Global variable to keep track of frame count
 
+//Global state shared by all components
 export const globalState = {
     frameCount: 0,
     camera_x: 0,
@@ -14,12 +14,36 @@ export const globalState = {
     canvas_width: 100,
     canvas_height: 100,
 
-    clickable: false
+    clickable: false,
+
+    mouse_clicked: false,
+    mouse_down: false,
+    mouse_release: false,
+
+    mouse_down_x: 0,
+    mouse_down_y: 0,
+
+    objects: []
 };
 
 const StarCanvas = () => {
     const canvasRef = useRef(null);
 
+    globalState.objects = [new Star(0,0)]
+
+
+    useEffect(() => {
+        const handleMouseUp = () => {
+            globalState.mouse_clicked = false;
+            globalState.mouse_release = true;
+        };
+        
+        document.addEventListener('mouseup', handleMouseUp);
+        return () => {
+          document.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, []);
+    
     const draw = (ctx, globalState) => {
         // Make it visually fill the positioned parent
         ctx.canvas.style.width ='100%';
@@ -45,6 +69,14 @@ const StarCanvas = () => {
         ctx.fillText('Canvas Y: ' + (globalState.canvas_height).toString(), 10, 100);
         ctx.fillText('Camera X: ' + (globalState.camera_x).toString(), 10, 120);
         ctx.fillText('Camera Y: ' + (globalState.camera_y).toString(), 10, 140);
+        ctx.fillText('Mouse Clicked: ' + (globalState.mouse_clicked).toString(), 10, 160);
+        ctx.fillText('Mouse Down: ' + (globalState.mouse_down).toString(), 10, 180);
+
+
+
+        for (let i = 0; i < globalState.objects.length; i++) {
+            globalState.objects[i].render(ctx)
+        }
       }
       
       useEffect(() => {
@@ -58,7 +90,13 @@ const StarCanvas = () => {
           globalState.frameCount++
           globalState.clickable = false
 
+          for (let i = 0; i < globalState.objects.length; i++) {
+            globalState.objects[i].update()
+          }
+
           draw(context, globalState)
+          globalState.mouse_down = false
+          globalState.mouse_release = false
           animationFrameId = window.requestAnimationFrame(render)
         }
 
