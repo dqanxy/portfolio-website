@@ -3,6 +3,7 @@ import './App.css';
 import Topbar from './components/Topbar';
 import Footer from './components/Footer';
 import StarCanvas from './components/StarCanvas';
+import StarCanvasContainer from './components/StarCanvasContainer';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <StarCanvas />
+      <StarCanvasContainer />
       <Footer />
     </div>
   );
