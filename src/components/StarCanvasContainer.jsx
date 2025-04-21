@@ -23,7 +23,12 @@ const StarCanvasContainer = () => {
     };
 
     const changeStar = (newStar) => {
-        setStar(newStar); // Update the star state with the new star object
+        setStar({
+            bodyText: newStar.bodyText,
+            headerText: newStar.headerText,
+            subtitleText: newStar.subtitleText,
+            titleText: newStar.titleText,
+        }); // Update the star state with the new star object
         setIsVisible(false);
     }
 
@@ -39,7 +44,7 @@ const StarCanvasContainer = () => {
                         border: '1px solid black',
                     }}>
                                 
-                    <StarCanvas callback={setStar.bind(this)}/>
+                    <StarCanvas callback={changeStar}/>
                 </div>
 
             </div>
