@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import ClickableHandler from './ClickableHandler';
 import Star from './Star';
+import StarLine from './StarLine';
 
 let frameCount = 0; // Global variable to keep track of frame count
 
@@ -31,7 +32,11 @@ const StarCanvas = ({callback}) => {
 
     if(globalState.objects.length === 0) {
 
-        globalState.objects = [new Star(0,0)]
+        globalState.objects = [new Star(0,0,2, "Hello World!"), new Star(-100,60,1, "Other Star!"), new Star(90,-15,1, "Another Star!")];
+        globalState.objects = [new StarLine(0, 0, -100, 60), new StarLine(0, 0, 90, -15),
+            ...globalState.objects
+        ]
+
     }
     globalState.callback = callback
 

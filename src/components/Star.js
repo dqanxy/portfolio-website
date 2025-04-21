@@ -2,10 +2,11 @@ import { globalState } from "./StarCanvas";
 
 class Star {
     
-    constructor(x, y) {
+    constructor(x, y, scale, bodyText, headerText, subtitleText, titleText) {
         this.x = x;
         this.y = y;
-        this.radius = 20;
+        this.scale = scale;
+        this.radius = 20 * scale;
         this.targetting = false;
 
         this.angle = 10;
@@ -17,10 +18,10 @@ class Star {
         this.tooltip = "Welcome!";
         this.tooltip_alpha = 0;
 
-        this.bodyText = "Hello World!";
-        this.headerText = "Welcome to My Portfolio!";
-        this.subtitleText = "Explore with the map above, or read below!";
-        this.titleText = "Hey there!";
+        this.bodyText = bodyText || "Todo!";
+        this.headerText = headerText || "Welcome to My Portfolio!";
+        this.subtitleText = subtitleText || "Explore with the map above, or read below!";
+        this.titleText = titleText || "Hey there!";
     }
 
     render(context) {
@@ -30,8 +31,8 @@ class Star {
 
         if(displayX < 0 - 50 || displayX > globalState.canvas_width + 50 || displayY < -50 || displayY > globalState.canvas_height + 50) return
         
-        let r1 = 4.0
-        let r2 = 9.0
+        let r1 = 4.0 * this.scale
+        let r2 = 9.0 * this.scale
 
         let rads = this.angle * Math.PI / 180
 
@@ -56,8 +57,8 @@ class Star {
         context.closePath();
 
 
-        r1 = 4
-        r2 = 12
+        r1 = 4 * this.scale
+        r2 = 12 * this.scale
         points = 4;
 
         context.beginPath();
@@ -69,12 +70,16 @@ class Star {
             if(i < points - 1) context.lineTo(displayX + r2 * Math.cos(rads + ((i + 1) * 2 * Math.PI / points)), displayY + r2 * Math.sin(rads + ((i + 1) * 2 * Math.PI / points)));
         }
         
-        context.fillStyle = 'rgba(255, 255, 255, 0.8)'; // Set the fill color to white with 50% transparency
+        context.fillStyle = 'rgba(255, 255, 255, 0.9)'; // Set the fill color to white with 50% transparency
         context.fill();
         //context.fill();
         context.closePath();
 
         if(this.tooltip_alpha > 0){
+
+            context.fillStyle = `rgba(10,17,38, ${this.tooltip_alpha})`; // Set the stroke color to white with dynamic transparency
+            context.fillRect(displayX + 18, displayY + 18, 200, 45);
+
             context.beginPath();
             context.moveTo(displayX + 2, displayY + 2);
             context.lineTo(displayX + 14, displayY + 14);
