@@ -33,7 +33,7 @@ const renderCustomHtmlText = (textContent) => {
         // Other tags will effectively be ignored
     }
 
-    return <>{elements}</>;
+    return <p style={{"whiteSpace":"pre-wrap"}}>{elements}</p>;
 };
 
 

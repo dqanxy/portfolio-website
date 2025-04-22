@@ -42,19 +42,15 @@ const StarCanvas = ({callback}) => {
     if(globalState.objects.length === 0) {
 
         globalState.objects = [new Star(0,0,2, "main", 
-            "<em>Hello World!</em> <img src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/me.jpg' caption='This is me!'/> Check out this: <StarLink value='test1' text='Test 1'/>",
+            `<em>Hello World!</em> <img src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/me.jpg' caption='This is me!'/> Check out this: <StarLink value='test1' text='Test 1'/>
+WIP as of 4/22/2025`,
+            "Daniel Tian's Portfolio",
         )];
 
         if(selectedParam == null) {
             globalState.objects[0].select();
         }
 
-        for (let i = 0; i < globalState.objects.length; i++) {
-            if(globalState.objects[i].name == selectedParam) {
-                globalState.objects[i].select();
-                break;
-            }
-        }
 
         fetch('https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/graph.json')
             .then(response => response.json())
@@ -87,7 +83,15 @@ const StarCanvas = ({callback}) => {
             });
             globalState.objects = [...lines, ...globalState.objects]
             globalState.loading = false;
-            })
+
+            
+            for (let i = 0; i < globalState.objects.length; i++) {
+                if(globalState.objects[i].name == selectedParam) {
+                    globalState.objects[i].select();
+                    break;
+                }
+            }
+        })
             .catch(error => console.error('Error loading graph.json:', error));
 
 
@@ -125,14 +129,14 @@ const StarCanvas = ({callback}) => {
         ctx.fillStyle = '#FFFFFF';
 
         if (globalState.loading) ctx.fillText('Loading' + (globalState.frameCount % 60 < 20 ? '.' : (globalState.frameCount % 60 < 40 ? '..' : '...')), 10, 20);
-        ctx.fillText('Mouse X: ' + (globalState.mouse_x).toString(), 10, 40);
-        ctx.fillText('Mouse Y: ' + (globalState.mouse_y).toString(), 10, 60);
-        ctx.fillText('Canvas X: ' + (globalState.canvas_width).toString(), 10, 80);
-        ctx.fillText('Canvas Y: ' + (globalState.canvas_height).toString(), 10, 100);
-        ctx.fillText('Camera X: ' + (globalState.camera_x).toString(), 10, 120);
-        ctx.fillText('Camera Y: ' + (globalState.camera_y).toString(), 10, 140);
-        ctx.fillText('Mouse Clicked: ' + (globalState.mouse_clicked).toString(), 10, 160);
-        ctx.fillText('Mouse Down: ' + (globalState.mouse_down).toString(), 10, 180);
+        // ctx.fillText('Mouse X: ' + (globalState.mouse_x).toString(), 10, 40);
+        // ctx.fillText('Mouse Y: ' + (globalState.mouse_y).toString(), 10, 60);
+        // ctx.fillText('Canvas X: ' + (globalState.canvas_width).toString(), 10, 80);
+        // ctx.fillText('Canvas Y: ' + (globalState.canvas_height).toString(), 10, 100);
+        // ctx.fillText('Camera X: ' + (globalState.camera_x).toString(), 10, 120);
+        // ctx.fillText('Camera Y: ' + (globalState.camera_y).toString(), 10, 140);
+        // ctx.fillText('Mouse Clicked: ' + (globalState.mouse_clicked).toString(), 10, 160);
+        // ctx.fillText('Mouse Down: ' + (globalState.mouse_down).toString(), 10, 180);
 
 
 
