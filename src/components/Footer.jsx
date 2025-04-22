@@ -14,13 +14,13 @@ const Footer = () => {
                         <div className="container mx-auto py-8 px-4 text-center">
                             <h2 className="text-xl font-bold">Daniel Tian</h2>
                             <p className="mt-2">
-                                Email: <a href="mailto:danieltian@example.com" className="text-blue-400 hover:underline">danieltian@example.com</a>
+                                Email: <a href="mailto:dqanxy6706@gmail.com" className="text-blue-400 hover:underline">dqanxy6706@gmail.com</a>
                             </p>
                             <p className="mt-1">
-                                Phone: <a href="tel:+1234567890" className="text-blue-400 hover:underline">+1 (234) 567-890</a>
+                                Github: <a href="https://github.com/dqanxy" className="text-blue-400 hover:underline">github.com/dqanxy</a>
                             </p>
                             <p className="mt-1">
-                                LinkedIn: <a href="https://linkedin.com/in/danieltian" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">linkedin.com/in/danieltian</a>
+                                LinkedIn: <a href="https://www.linkedin.com/in/tian-daniel/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">linkedin.com/in/tian-daniel/</a>
                             </p>
                         </div>
                     </div>

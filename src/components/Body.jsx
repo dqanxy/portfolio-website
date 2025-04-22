@@ -1,6 +1,41 @@
 import React, { useEffect, useState } from "react";
 import StarLink from "./StarLink";
 
+const renderCustomHtmlText = (textContent) => {
+    // First replace HTML entities
+
+
+    textContent = textContent.replace(/<br>/g, '\n')
+    textContent = textContent.replace(/<p>/g, '\n')
+    textContent = textContent.replace(/<p\/>/g, '')
+  
+    // Parse with a regex for <em> and <strong> tags
+    const regex = /<em>(.*?)<\/em>|<strong>(.*?)<\/strong>|<a .* href="([^"]+)"[^>]*>(.*?)<\/a>|<StarLink value='([^']+)' text='([^']+)'\/>|<img src="([^"]+)"\/>|<([^>]+)>|([^<]+)/g;
+
+    const elements = [];
+    let match;
+    while ((match = regex.exec(textContent)) !== null) {
+        const [fullMatch, emText, strongText, url, linkText, starLinkValue, starLinkText, imgSrc, otherTag, normalText] = match;
+        if (emText) {
+            elements.push(<em key={elements.length}>{renderCustomHtmlText(emText)}</em>);
+        } else if (strongText) {
+            elements.push(<strong key={elements.length}>{renderCustomHtmlText(strongText)}</strong>);
+        } else if (url && linkText) {
+            elements.push(<a key={elements.length} href={url}>{renderCustomHtmlText(linkText)}</a>);
+        } else if (starLinkValue && starLinkText) {
+            elements.push(<StarLink key={elements.length} value={starLinkValue} text={starLinkText} />);
+        } else if (imgSrc) {
+            elements.push(<img key={elements.length} src={imgSrc} alt="Image" />);
+        } else if (normalText) {
+            elements.push(<span key={elements.length}>{normalText}</span>);
+        }
+        // Other tags will effectively be ignored
+    }
+
+    return <>{elements}</>;
+};
+
+
 const Body = ({isVisible, headerText, subtitleText, titleText, bodyText }) => {
     const [headerVisible, setHeaderVisible] = useState(isVisible);
     const [bodyVisible, setBodyVisible] = useState(isVisible);
@@ -57,8 +92,8 @@ const Body = ({isVisible, headerText, subtitleText, titleText, bodyText }) => {
             >
                 <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
                     <h2 className="text-2xl font-semibold text-gray-800 mb-4">{titleText}</h2>
-                    <p className="text-gray-600">{bodyText}
-                         <StarLink text={"Click here!"} value={"test1"}/>
+                    <p className="text-gray-600">
+                        {renderCustomHtmlText(bodyText)}
                     </p>
                 </div>
             </div>

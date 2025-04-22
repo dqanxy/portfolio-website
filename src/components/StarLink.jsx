@@ -4,12 +4,11 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const StarLink = ({text, value}) => {
-
     const handleClick = () => {
         for (let i = 0; i < globalState.objects.length; i++) {
-            if(globalState.objects[i].name === value) {
+            if (globalState.objects[i].name === value) {
                 for (let j = 0; j < globalState.objects.length; j++) {
-                    if(globalState.objects[j].name === globalState.focused) {
+                    if (globalState.objects[j].name === globalState.focused) {
                         globalState.objects[j].targetting = false;
                     }
                 }
@@ -17,6 +16,7 @@ const StarLink = ({text, value}) => {
                 break;
             }
         }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (

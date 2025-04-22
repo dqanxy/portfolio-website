@@ -78,7 +78,7 @@ class Star {
 
         if(this.tooltip_alpha > 0){
 
-            context.fillStyle = `rgba(10,17,38, ${this.tooltip_alpha})`; // Set the stroke color to white with dynamic transparency
+            context.fillStyle = `rgba(10,17,38, ${this.tooltip_alpha * .7})`; // Set the stroke color to white with dynamic transparency
             context.fillRect(displayX + 18, displayY + 18, 200, 45);
 
             context.beginPath();

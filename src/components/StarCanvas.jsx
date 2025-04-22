@@ -26,6 +26,8 @@ export const globalState = {
 
     focused: "",
 
+    loading: true,
+
     objects: []
 };
 
@@ -39,7 +41,9 @@ const StarCanvas = ({callback}) => {
 
     if(globalState.objects.length === 0) {
 
-        globalState.objects = [new Star(0,0,2, "main", "Hello World!")];
+        globalState.objects = [new Star(0,0,2, "main", 
+            "<em>Hello World!</em> <StarLink value='test1' text='Test 1'/>",
+        )];
         for (let i = 0; i < globalState.objects.length; i++) {
             if(globalState.objects[i].name == selectedParam) {
                 globalState.objects[i].select();
@@ -77,6 +81,7 @@ const StarCanvas = ({callback}) => {
                 console.log(edge.source, edge.target, map[edge.source][0], map[edge.source][1], map[edge.target][0], map[edge.target][1])
             });
             globalState.objects = [...lines, ...globalState.objects]
+            globalState.loading = false;
             })
             .catch(error => console.error('Error loading graph.json:', error));
 
@@ -114,7 +119,7 @@ const StarCanvas = ({callback}) => {
         ctx.font = '16px Arial';
         ctx.fillStyle = '#FFFFFF';
 
-        ctx.fillText('Loading' + (globalState.frameCount % 60 < 20 ? '.' : (globalState.frameCount % 60 < 40 ? '..' : '...')), 10, 20);
+        if (globalState.loading) ctx.fillText('Loading' + (globalState.frameCount % 60 < 20 ? '.' : (globalState.frameCount % 60 < 40 ? '..' : '...')), 10, 20);
         ctx.fillText('Mouse X: ' + (globalState.mouse_x).toString(), 10, 40);
         ctx.fillText('Mouse Y: ' + (globalState.mouse_y).toString(), 10, 60);
         ctx.fillText('Canvas X: ' + (globalState.canvas_width).toString(), 10, 80);

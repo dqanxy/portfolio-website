@@ -28,7 +28,7 @@ const Topbar = () => {
         <div className="bg-gray-800 text-white">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
                 <div className="text-2xl font-bold">
-                    <h1>My Portfolio</h1>
+                    <h1>Daniel Tian</h1>
                 </div>
                 <div className="space-x-6">
                     <a href="#" className="hover:text-gray-400" onClick={(e) => { e.preventDefault(); handleClick(); }}>Portfolio</a>
