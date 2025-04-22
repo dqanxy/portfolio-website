@@ -2,7 +2,7 @@ import { globalState } from "./StarCanvas";
 
 class Star {
     
-    constructor(x, y, scale, name, bodyText, headerText, subtitleText, titleText) {
+    constructor(x, y, scale, name, bodyText, headerText, subtitleText, titleText, tooltip) {
         this.x = x;
         this.y = y;
         this.scale = scale;
@@ -16,7 +16,7 @@ class Star {
         this.rotation_direction = Math.random() < 0.5 ? 1 : -1;
         this.rotation_speed = 1;
 
-        this.tooltip = "Welcome!";
+        this.tooltip = tooltip || "Welcome!";
         this.tooltip_alpha = 0;
 
         this.bodyText = bodyText || "Todo!";

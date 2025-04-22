@@ -39,16 +39,47 @@ const StarCanvas = ({callback}) => {
 
     if(globalState.objects.length === 0) {
 
-        globalState.objects = [new Star(0,0,2, "main", "Hello World!"), new Star(-100,60,1, "test1", "Other Star!"), new Star(90,-15,1, "test2", "Another Star!")];
+        globalState.objects = [new Star(0,0,2, "main", "Hello World!")];
         for (let i = 0; i < globalState.objects.length; i++) {
             if(globalState.objects[i].name == selectedParam) {
                 globalState.objects[i].select();
                 break;
             }
         }
-        globalState.objects = [new StarLine(0, 0, -100, 60), new StarLine(0, 0, 90, -15),
-            ...globalState.objects
-        ]
+
+        fetch('/graph.json')
+            .then(response => response.json())
+            .then(data => {
+                let map = {}
+                let lines = []
+                map["main"] = [0, 0]
+                data.stars.forEach(star => {
+                    if(!star.x || !star.y) {
+                        console.error("Star x or y is undefined:", star);
+                        return;
+                    }
+                    map[star.name] = [star.x, star.y]
+                    if(!star.scale || star.scale < 0 || star.name == null || star.name == "" 
+                        || star.bodyText == null || star.bodyText == "" || star.headerText == null || star.headerText == "" 
+                        || star.subtitleText == null || star.subtitleText == "" || star.titleText == null || star.titleText == "" 
+                        || star.tooltip == null || star.tooltip == "") {
+                        console.error("Star properties are invalid:", star);
+                        return;
+                    }
+                    globalState.objects.push(new Star(star.x, star.y, star.scale, star.name, star.bodyText, star.headerText, star.subtitleText, star.titleText, star.tooltip));
+                });
+                data.edges.forEach(edge => {
+                    if(!map[edge.source] || !map[edge.target]) {
+                        console.error("Edge source or target not found in map:", edge.source, edge.target);
+                        return;
+                    }
+                    lines.push(new StarLine(map[edge.source][0], map[edge.source][1], map[edge.target][0], map[edge.target][1]));
+                    console.log(edge.source, edge.target, map[edge.source][0], map[edge.source][1], map[edge.target][0], map[edge.target][1])
+                });
+                globalState.objects = [...lines, ...globalState.objects]
+            })
+            .catch(error => console.error('Error loading graph.json:', error));
+
 
 
     }

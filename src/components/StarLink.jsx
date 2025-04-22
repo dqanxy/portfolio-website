@@ -1,6 +1,6 @@
 import React from 'react';
 import {globalState} from './StarCanvas'; // Import the global state
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const StarLink = ({text, value}) => {
@@ -22,7 +22,7 @@ const StarLink = ({text, value}) => {
     return (
             <a href="#" onClick={(e) => { e.preventDefault(); handleClick(); }}
            className="bg-gray-800 text-white hover:bg-gray-400 rounded-md px-2 py-1">
-                {text} <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-1" />
+                {text} <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
             </a>
         
     );

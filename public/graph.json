@@ -1,0 +1,55 @@
+{
+    "stars": [
+        {
+            "name": "test1",
+            "tooltip": "Test 1",
+            "x" : 100,
+            "y" : 100,
+            "scale" : 1.5,
+            "headerText" : "Header 1",
+            "subtitleText" : "Subtitle 1",
+            "titleText" : "Title 1",
+            "bodyText" : "Description 1"
+        },
+        {
+            "name": "test2",
+            "tooltip": "Test 2",
+            "x" : -100,
+            "y" : -100,
+            "scale" : 1.5,
+            "headerText" : "Header 2",
+            "subtitleText" : "Subtitle 2",
+            "titleText" : "Title 2",
+            "bodyText" : "Description 2"
+        },
+        {
+            "name": "test3",
+            "tooltip": "Test 3",
+            "x" : -50,
+            "y" : 150,
+            "scale" : 1.5,
+            "headerText" : "Header 3",
+            "subtitleText" : "Subtitle 3",
+            "titleText" : "Title 3",
+            "bodyText" : "Description 3"
+        }
+    ],
+    "edges": [
+        {
+            "source": "main",
+            "target": "test1"
+        },
+        {
+            "source": "main",
+            "target": "test2"
+        },
+        {
+            "source": "main",
+            "target": "test3"
+        },
+        {
+            "source": "test2",
+            "target": "test3"
+        }
+    ]
+}
