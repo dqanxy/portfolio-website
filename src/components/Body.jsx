@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import StarLink from "./StarLink";
+import BodyImage from "./BodyImage";
 
 const renderCustomHtmlText = (textContent) => {
     // First replace HTML entities
@@ -9,13 +10,13 @@ const renderCustomHtmlText = (textContent) => {
     textContent = textContent.replace(/<p>/g, '\n')
     textContent = textContent.replace(/<p\/>/g, '')
   
-    // Parse with a regex for <em> and <strong> tags
-    const regex = /<em>(.*?)<\/em>|<strong>(.*?)<\/strong>|<a .* href="([^"]+)"[^>]*>(.*?)<\/a>|<StarLink value='([^']+)' text='([^']+)'\/>|<img src="([^"]+)"\/>|<([^>]+)>|([^<]+)/g;
+    // Parse with a regex for all relevant tags
+    const regex = /<em>(.*?)<\/em>|<strong>(.*?)<\/strong>|<a .* href='([^']+)'[^>]*>(.*?)<\/a>|<StarLink value='([^']+)' text='([^']+)'\/>|<img src='([^']+)' caption='([^']*)'\/>|<([^>]+)>|([^<]+)/g;
 
     const elements = [];
     let match;
     while ((match = regex.exec(textContent)) !== null) {
-        const [fullMatch, emText, strongText, url, linkText, starLinkValue, starLinkText, imgSrc, otherTag, normalText] = match;
+        const [fullMatch, emText, strongText, url, linkText, starLinkValue, starLinkText, imgSrc, imgCaption, otherTag, normalText] = match;
         if (emText) {
             elements.push(<em key={elements.length}>{renderCustomHtmlText(emText)}</em>);
         } else if (strongText) {
@@ -25,7 +26,7 @@ const renderCustomHtmlText = (textContent) => {
         } else if (starLinkValue && starLinkText) {
             elements.push(<StarLink key={elements.length} value={starLinkValue} text={starLinkText} />);
         } else if (imgSrc) {
-            elements.push(<img key={elements.length} src={imgSrc} alt="Image" />);
+            elements.push(<BodyImage key={elements.length} caption={imgCaption !== '' ? imgCaption : null} src={imgSrc} alt="Image" />);
         } else if (normalText) {
             elements.push(<span key={elements.length}>{normalText}</span>);
         }

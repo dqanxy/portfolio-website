@@ -42,8 +42,13 @@ const StarCanvas = ({callback}) => {
     if(globalState.objects.length === 0) {
 
         globalState.objects = [new Star(0,0,2, "main", 
-            "<em>Hello World!</em> <StarLink value='test1' text='Test 1'/>",
+            "<em>Hello World!</em> <img src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/me.jpg' caption='This is me!'/> Check out this: <StarLink value='test1' text='Test 1'/>",
         )];
+
+        if(selectedParam == null) {
+            globalState.objects[0].select();
+        }
+
         for (let i = 0; i < globalState.objects.length; i++) {
             if(globalState.objects[i].name == selectedParam) {
                 globalState.objects[i].select();
