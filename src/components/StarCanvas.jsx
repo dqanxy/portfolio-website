@@ -47,36 +47,36 @@ const StarCanvas = ({callback}) => {
             }
         }
 
-        fetch('/graph.json')
+        fetch('https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/graph.json')
             .then(response => response.json())
             .then(data => {
-                let map = {}
-                let lines = []
-                map["main"] = [0, 0]
-                data.stars.forEach(star => {
-                    if(!star.x || !star.y) {
-                        console.error("Star x or y is undefined:", star);
-                        return;
-                    }
-                    map[star.name] = [star.x, star.y]
-                    if(!star.scale || star.scale < 0 || star.name == null || star.name == "" 
-                        || star.bodyText == null || star.bodyText == "" || star.headerText == null || star.headerText == "" 
-                        || star.subtitleText == null || star.subtitleText == "" || star.titleText == null || star.titleText == "" 
-                        || star.tooltip == null || star.tooltip == "") {
-                        console.error("Star properties are invalid:", star);
-                        return;
-                    }
-                    globalState.objects.push(new Star(star.x, star.y, star.scale, star.name, star.bodyText, star.headerText, star.subtitleText, star.titleText, star.tooltip));
-                });
-                data.edges.forEach(edge => {
-                    if(!map[edge.source] || !map[edge.target]) {
-                        console.error("Edge source or target not found in map:", edge.source, edge.target);
-                        return;
-                    }
-                    lines.push(new StarLine(map[edge.source][0], map[edge.source][1], map[edge.target][0], map[edge.target][1]));
-                    console.log(edge.source, edge.target, map[edge.source][0], map[edge.source][1], map[edge.target][0], map[edge.target][1])
-                });
-                globalState.objects = [...lines, ...globalState.objects]
+            let map = {}
+            let lines = []
+            map["main"] = [0, 0]
+            data.stars.forEach(star => {
+                if(!star.x || !star.y) {
+                console.error("Star x or y is undefined:", star);
+                return;
+                }
+                map[star.name] = [star.x, star.y]
+                if(!star.scale || star.scale < 0 || star.name == null || star.name == "" 
+                || star.bodyText == null || star.bodyText == "" || star.headerText == null || star.headerText == "" 
+                || star.subtitleText == null || star.subtitleText == "" || star.titleText == null || star.titleText == "" 
+                || star.tooltip == null || star.tooltip == "") {
+                console.error("Star properties are invalid:", star);
+                return;
+                }
+                globalState.objects.push(new Star(star.x, star.y, star.scale, star.name, star.bodyText, star.headerText, star.subtitleText, star.titleText, star.tooltip));
+            });
+            data.edges.forEach(edge => {
+                if(!map[edge.source] || !map[edge.target]) {
+                console.error("Edge source or target not found in map:", edge.source, edge.target);
+                return;
+                }
+                lines.push(new StarLine(map[edge.source][0], map[edge.source][1], map[edge.target][0], map[edge.target][1]));
+                console.log(edge.source, edge.target, map[edge.source][0], map[edge.source][1], map[edge.target][0], map[edge.target][1])
+            });
+            globalState.objects = [...lines, ...globalState.objects]
             })
             .catch(error => console.error('Error loading graph.json:', error));
 
