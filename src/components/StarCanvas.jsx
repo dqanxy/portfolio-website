@@ -85,6 +85,7 @@ Distributed Multiplayer Server
 DS projects
 Improving AACs with Gemini
 AIDJ - Your AI DJ
+Shared Controller
 Indie Game Dev projects
 This portfolio website!
 More to come!
@@ -95,9 +96,7 @@ More to come!
         if(selectedParam == null) {
             globalState.objects[0].select();
         }
-
-
-        fetch('https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/graph.json')
+        fetch('https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/graph.json', { cache: 'no-store' })
             .then(response => response.json())
             .then(data => {
             let map = {}

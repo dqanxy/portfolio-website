@@ -1,8 +1,8 @@
 {
     "stars": [
         {
-            "name": "test1",
-            "tooltip": "Test 1",
+            "name": "ai",
+            "tooltip": "AI",
             "parent": "main",
             "x" : 100,
             "y" : 100,
@@ -13,10 +13,10 @@
             "bodyText" : "Description 1"
         },
         {
-            "name": "test2",
-            "tooltip": "Test 2",
+            "name": "data",
+            "tooltip": "Data",
             "parent": "main",
-            "x" : -100,
+            "x" : 100,
             "y" : -100,
             "scale" : 1.5,
             "headerText" : "Header 2",
@@ -25,8 +25,8 @@
             "bodyText" : "Description 2"
         },
         {
-            "name": "test3",
-            "tooltip": "Test 3",
+            "name": "fullstack",
+            "tooltip": "Full Stack",
             "parent": "main",
             "x" : -50,
             "y" : 150,
@@ -35,24 +35,134 @@
             "subtitleText" : "Subtitle 3",
             "titleText" : "Title 3",
             "bodyText" : "Description 3"
+        },
+        {
+            "name": "aboutme",
+            "tooltip": "About Me",
+            "parent": "main",
+            "x" : -125,
+            "y" : -100,
+            "scale" : 1.5,
+            "headerText" : "Header 4",
+            "subtitleText" : "Subtitle 4",
+            "titleText" : "Title 4",
+            "bodyText" : "Description 4"
+        },
+        {
+            "name": "tiktok",
+            "tooltip": "TikTok",
+            "parent": "data",
+            "x" : 200,
+            "y" : -150,
+            "scale" : 1.25,
+            "headerText" : "Header 5",
+            "subtitleText" : "Subtitle 5",
+            "titleText" : "Title 5",
+            "bodyText" : "WIP! (as of 04/27/2025)"
+        },
+        {
+            "name": "kubica",
+            "tooltip": "Kubica",
+            "parent": "fullstack",
+            "x" : -240,
+            "y" : 200,
+            "scale" : 1.25,
+            "headerText" : "Header 6",
+            "subtitleText" : "Subtitle 6",
+            "titleText" : "Title 6",
+            "bodyText" : "WIP! (as of 04/27/2025)"
+        },
+        {
+            "name": "joinlu",
+            "tooltip": "JoinLU",
+            "parent": "fullstack",
+            "x" : -150,
+            "y" : 300,
+            "scale" : 1.25,
+            "headerText" : "Header 7",
+            "subtitleText" : "Subtitle 7",
+            "titleText" : "Title 7",
+            "bodyText" : "WIP! (as of 04/27/2025)"
+        },
+        {
+            "name": "timber",
+            "tooltip": "Timber Game\nEngine",
+            "parent": "fullstack",
+            "x" : -250,
+            "y" : 80,
+            "scale" : 1.25,
+            "headerText" : "Header 8",
+            "subtitleText" : "Subtitle 8",
+            "titleText" : "Title 8",
+            "bodyText" : "WIP! (as of 04/27/2025)"
+        },
+        {
+            "name": "walbridge",
+            "tooltip": "Walbridge\nComputer Vision",
+            "parent": "ai",
+            "x" : 150,
+            "y" : 200,
+            "scale" : 1.25,
+            "headerText" : "Header 9",
+            "subtitleText" : "Subtitle 9",
+            "titleText" : "Title 9",
+            "bodyText" : "WIP! (as of 04/27/2025)"
+        },
+        {
+            "name": "nlpresearch",
+            "tooltip": "NLP Research",
+            "parent": "ai",
+            "x" : 220,
+            "y" : 150,
+            "scale" : 1.25,
+            "headerText" : "Header 10",
+            "subtitleText" : "Subtitle 10",
+            "titleText" : "Title 10",
+            "bodyText" : "WIP! (as of 04/27/2025)"
         }
+        
     ],
     "edges": [
         {
             "source": "main",
-            "target": "test1"
+            "target": "data"
         },
         {
             "source": "main",
-            "target": "test2"
+            "target": "fullstack"
         },
         {
             "source": "main",
-            "target": "test3"
+            "target": "ai"
         },
         {
-            "source": "test2",
-            "target": "test3"
+            "source": "main",
+            "target": "aboutme"
+        },
+        {
+            "source": "data",
+            "target": "tiktok"
+        },
+        {
+            "source": "fullstack",
+            "target": "kubica"
+        },
+        {
+            "source": "fullstack",
+            "target": "joinlu"
+        },
+        {
+            "source": "fullstack",
+            "target": "timber"
+        },
+        {
+            "source": "ai",
+            "target": "walbridge"
+        },
+        {
+            "source": "ai",
+            "target": "nlpresearch"
         }
+
     ]
 }

@@ -23,6 +23,20 @@ const Topbar = () => {
             }
         }
     };
+    
+    const handleClickAboutMe = () => {
+        for (let i = 0; i < globalState.objects.length; i++) {
+            if(globalState.objects[i].name === "aboutme") {
+                for (let j = 0; j < globalState.objects.length; j++) {
+                    if(globalState.objects[j].name === globalState.focused) {
+                        globalState.objects[j].targetting = false;
+                    }
+                }
+                globalState.objects[i].select();
+                break;
+            }
+        }
+    };
 
     return (
         <div className="bg-gray-800 text-white">
@@ -32,7 +46,7 @@ const Topbar = () => {
                 </div>
                 <div className="space-x-6">
                     <a href="#" className="hover:text-gray-400" onClick={(e) => { e.preventDefault(); handleClick(); }}>Portfolio</a>
-                    <a href="#about" className="hover:text-gray-400">About Me</a>
+                    <a href="#about" className="hover:text-gray-400" onClick={(e) => { e.preventDefault(); handleClickAboutMe(); }}>About Me</a>
                     <button onClick={scrollToBottom} className="hover:text-gray-400">Contact</button>
                 </div>
             </div>
