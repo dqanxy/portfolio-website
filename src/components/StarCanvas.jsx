@@ -42,8 +42,53 @@ const StarCanvas = ({callback}) => {
     if(globalState.objects.length === 0) {
 
         globalState.objects = [new Star(0,0,2, "main", 
-            `<em>Hello World!</em> <img src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/me.jpg' caption='This is me!'/> Check out this: <StarLink value='test1' text='Test 1'/>
-WIP as of 4/22/2025`,
+            `My name is Daniel Tian, a software engineer with interests in data and full stack, and how they intersect with AI. I have experience in big data, distributed systems, model serving, cloud computing, and I am broadly interested in <strong>making the technologies to support large-scale AI.</strong> 
+            <img src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/me.jpg' caption=''/>
+I wanted to make a personal website that can act as both a showcase/portfolio for my projects, as well as a blog where I can talk about my experiences. And so, I've combined them! Each star in the map above is an experience, and you can navigate between experiences either by clicking on different stars, or checking out the links below. I've listed all of my projects and main points of interest in this \“main\” star you are currently looking at. 
+
+<em>If you are interested in any particular project, click the associated link below. Otherwise, feel free to explore the starmap above!</em>
+
+<strong>Work Experience</strong>
+<SideImage src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/tiktok.png' useLeft='true'><strong>TikTok SWE Internship</strong>
+Recommendation Infrastructure, Data Lake and Distributed Computing
+
+<StarLink value='tiktok' text='TikTok Internship'/></SideImage>
+
+<SideImage src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/kubica_corp_logo.jpg' useLeft='false'><strong>Kubica SWE Internship</strong>
+.NET Full Stack Development for PLCs
+
+<StarLink value='kubica' text='Kubica Internship'/></SideImage>
+
+<strong>Projects:</strong>
+<SideImage src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/joinlu.png' useLeft='true'><strong>JoinLu Platform</strong>
+Full Stack Development, Next.js + PostgreSQL
+
+<StarLink value='joinlu' text='JoinLu, ThinkWorkTogether'/></SideImage>
+
+<SideImage src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/timber.png' useLeft='false'><strong>Timber Engine</strong>
+Web-Based 3D Game Engine, Cloud Development + Embedded Lua + Godot
+
+<StarLink value='timber' text='Timber, the next MIT Scratch'/></SideImage>
+
+<SideImage src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/walbridge.png' useLeft='true'><strong>Walbridge Computer Vision</strong>
+Identifying Hazards with Computer Vision, Yolo + PyTorch + OpenCV
+
+<StarLink value='walbridge' text='Proximity Warning Alert System'/></SideImage>
+
+<SideImage src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/umich.jpg' useLeft='false'><strong>NLP Research Assistant</strong>
+Probing Spatial Understanding and Reasoning in LLMs
+
+<StarLink value='nlpresearch' text='NLP Research'/></SideImage>
+
+<strong>Other projects:</strong>
+Distributed Multiplayer Server
+DS projects
+Improving AACs with Gemini
+AIDJ - Your AI DJ
+Indie Game Dev projects
+This portfolio website!
+More to come!
+`,
             "Daniel Tian's Portfolio",
         )];
 
@@ -71,7 +116,7 @@ WIP as of 4/22/2025`,
                 console.error("Star properties are invalid:", star);
                 return;
                 }
-                globalState.objects.push(new Star(star.x, star.y, star.scale, star.name, star.bodyText, star.headerText, star.subtitleText, star.titleText, star.tooltip));
+                globalState.objects.push(new Star(star.x, star.y, star.scale, star.name, star.bodyText, star.headerText, star.subtitleText, star.titleText, star.tooltip, star.parent));
             });
             data.edges.forEach(edge => {
                 if(!map[edge.source] || !map[edge.target]) {

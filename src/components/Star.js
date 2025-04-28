@@ -2,13 +2,16 @@ import { globalState } from "./StarCanvas";
 
 class Star {
     
-    constructor(x, y, scale, name, bodyText, headerText, subtitleText, titleText, tooltip) {
+    constructor(x, y, scale, name, bodyText, headerText, subtitleText, titleText, tooltip, parent) {
         this.x = x;
         this.y = y;
         this.scale = scale;
         this.name = name;
         this.radius = 20 * scale;
         this.targetting = false;
+
+        this.parent = parent || null;
+        console.log("Star parent: ", this.parent)   
 
         this.angle = Math.random() * 360;
 
@@ -79,7 +82,7 @@ class Star {
         if(this.tooltip_alpha > 0){
 
             context.fillStyle = `rgba(10,17,38, ${this.tooltip_alpha * .7})`; // Set the stroke color to white with dynamic transparency
-            context.fillRect(displayX + 18, displayY + 18, 200, 45);
+            context.fillRect(displayX + 18, displayY + 18, 200, 40);
 
             context.beginPath();
             context.moveTo(displayX + 2, displayY + 2);
@@ -142,7 +145,7 @@ class Star {
         else{
             this.hover_timer = 0
             this.rotation_speed = Math.max(this.rotation_speed * .985, 1)
-            this.tooltip_alpha = Math.max(this.tooltip_alpha - 0.05, 0)
+            this.tooltip_alpha = Math.max(this.tooltip_alpha - 0.05, .5)
         }
 
         // Move camera towards star

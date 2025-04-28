@@ -3,6 +3,7 @@
         {
             "name": "test1",
             "tooltip": "Test 1",
+            "parent": "main",
             "x" : 100,
             "y" : 100,
             "scale" : 1.5,
@@ -14,6 +15,7 @@
         {
             "name": "test2",
             "tooltip": "Test 2",
+            "parent": "main",
             "x" : -100,
             "y" : -100,
             "scale" : 1.5,
@@ -25,6 +27,7 @@
         {
             "name": "test3",
             "tooltip": "Test 3",
+            "parent": "main",
             "x" : -50,
             "y" : 150,
             "scale" : 1.5,
