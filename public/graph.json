@@ -10,7 +10,7 @@
             "headerText" : "AI",
             "subtitleText" : "Everything relating to AI!",
             "titleText" : "AI Projects",
-            "bodyText" : "I consider myself multidisciplinary, with interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI. \n\nThis section contains a few AI related experiences, including my NLP research and my computer vision project with Walbridge. In the future, I'd like to put more projects relating to my interests in distributed training, model serving, model optimization, and GPU computing."
+            "bodyText" : "I have interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI. \n\nThis section contains a few AI related experiences, including my NLP research and my computer vision project with Walbridge. In the future, I'd like to put more projects relating to my interests in distributed training, model serving, model optimization, and GPU computing."
         },
         {
             "name": "data",
@@ -22,7 +22,7 @@
             "headerText" : "Data",
             "subtitleText" : "Everything relating to data!",
             "titleText" : "Data Projects",
-            "bodyText" : "I consider myself multidisciplinary, with interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI.\n\nThis section is connected to all of my data architecture/infra experiences. Currently it just contains my TikTok internship (which is a lot!), but I'll put other data projects over here later!"
+            "bodyText" : "I have interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI.\n\nThis section is connected to all of my data architecture/infra experiences. Currently it just contains my TikTok internship, but I'll put other data projects over here later!"
         },
         {
             "name": "fullstack",
@@ -34,19 +34,7 @@
             "headerText" : "Full Stack",
             "subtitleText" : "Everything relating to full stack!",
             "titleText" : "Full Stack Projects",
-            "bodyText" : "I consider myself multidisciplinary, with interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI.\n\nThis section is connected to all of my full stack experiences, including major experiences such as the Timber engine. my Kubica internship, and the ThinkWorkTogether platform in JoinLu. I don't consistently stick to any particular tech stack, but technologies I've used include React, Next.js, Flask, PostgreSQL, AWS S3, and AWS Lambda. I'll add other projects later, including personal projects and hackathons!"
-        },
-        {
-            "name": "aboutme",
-            "tooltip": "About Me",
-            "parent": "main",
-            "x" : -125,
-            "y" : -100,
-            "scale" : 1.5,
-            "headerText" : "Header 4",
-            "subtitleText" : "Subtitle 4",
-            "titleText" : "Title 4",
-            "bodyText" : "Todo (as of 5/10/2025)"
+            "bodyText" : "I have interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI.\n\nThis section is connected to all of my full stack experiences, including major experiences such as the Timber engine. my Kubica internship, and the ThinkWorkTogether platform in JoinLu. I don't consistently stick to any particular tech stack, but technologies I've used include React, Next.js, Flask, PostgreSQL, AWS S3, and AWS Lambda. I'll add other projects later, including personal projects and hackathons!"
         },
         {
             "name": "tiktok",
@@ -94,7 +82,7 @@
             "headerText" : "Timber Engine",
             "subtitleText" : "September 2023 - April 2025",
             "titleText" : "The Timber Engine",
-            "bodyText" : "For two years, I worked with a team on a web 3D game engine called “Timber”, headed by professor Austin Yarger from the University of Michigan, meant to be a successor to the popular beginner game engine MIT Scratch. MIT Scratch is accessible on the web at <a href='https://scratch.mit.edu/'>https://scratch.mit.edu/</a> and features a drag-and-drop programming language that makes it great as an accessible educational tool to teach beginners how to program. Timber is the next level… maintaining the accessibility of the web but having largely fleshed out capabilities, 3D support, as well as using both a drag-and-drop language and Lua, with the goal being to teach users how to use a real programming language. Start small, but keep going and you can learn to be a real programmer and make a truly complex game!\n\nWe built our game engine off of Godot, a popular open source game engine that handles rendering and is able to compile to the web. Unfortunately, it doesn’t run Lua, and we need it to read and write assets dynamically on the cloud to allow users to create their own projects. This is my job - modify Godot source code to allow Lua interpretation, build the Lua and C# infrastructure to run user code and perform corresponding actions, construct the Lua API, manage AWS authentication, projects, asset CRUD…\n\nDuring this project, I wrote things like Lua code-gen, hot reloading, object lifetime, coroutines, AWS Lambda functions, custom authentication with JWT, and much more. Suppose you have a script that runs on an actor, that says some dialogue when interacted with, then performs an action after some time. Well, you need to run that script as an object associated with an actor, then have the event run as a coroutine that can pause and resume after time passes, and have the coroutine notify the engine when specific actions must be made. And don’t expect the programmer to be smart, the API needs to be <em>as simple as possible</em>. And if the script changes, you need to reload the script without restarting the game… And you also need to upload that updated script to the cloud… And you need to make sure the person uploading the updated scripts has the proper permissions to write that script in that project…\n\nThis gets complex! Luckily, I can share my documentation for this project. This is an overview of my sections of the project: <a href='https://docs.google.com/document/d/1Jg2w3RCbO0erpQVe62TjDEA4r3SGn9rp1h-n9ZfqA0k/edit?usp=sharing'>Link</a>\n\nAnd more details about the Lua engine: <a href='https://docs.google.com/document/d/1oskfsdsXdO6_W2hqNnOwAO-oHZw6xBlapABsVqbjWQ0/edit?tab=t.0#heading=h.lnl3gae6ezr5'>Link</a>\n\nThis project is open source! <a href='https://github.com/ayarger/timber'>Link</a>\n\nI also feel as if this project grew as I grew as a programmer. I started making small features, but as my confidence grew and I learned more, I started integrating Lua, digging into source code, building a Lua engine and creating cloud infrastructure. Austin if you’re reading this, you are an amazing mentor and I hope this project will come to completion one day!"
+            "bodyText" : "For two years, I worked with a team on a web 3D game engine called “Timber”, headed by professor Austin Yarger from the University of Michigan, meant to be a successor to the popular beginner game engine MIT Scratch. MIT Scratch is accessible on the web at <a href='https://scratch.mit.edu/'>https://scratch.mit.edu/</a> and features a drag-and-drop programming language that makes it great as an accessible educational tool to teach beginners how to program. Timber is the next level… maintaining the accessibility of the web but having largely fleshed out capabilities, 3D support, as well as using both a drag-and-drop language and Lua, with the goal being to teach users how to use a real programming language. Start small, but keep going and you can learn to be a real programmer and make a truly complex game!\n<img src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/timber1.gif' caption=''/>\nWe built our game engine off of Godot, a popular open source game engine that handles rendering and is able to compile to the web. Unfortunately, it doesn’t run Lua, and we need it to read and write assets dynamically on the cloud to allow users to create their own projects. This is my job - modify Godot source code to allow Lua interpretation, build the Lua and C# infrastructure to run user code and perform corresponding actions, construct the Lua API, manage AWS authentication, projects, asset CRUD…\n\nDuring this project, I wrote things like Lua code-gen, hot reloading, object lifetime, coroutines, AWS Lambda functions, custom authentication with JWT, and much more. Suppose you have a script that runs on an actor, that says some dialogue when interacted with, then performs an action after some time. Well, you need to run that script as an object associated with an actor, then have the event run as a coroutine that can pause and resume after time passes, and have the coroutine notify the engine when specific actions must be made. And don’t expect the programmer to be smart, the API needs to be <em>as simple as possible</em>. And if the script changes, you need to reload the script without restarting the game… And you also need to upload that updated script to the cloud… And you need to make sure the person uploading the updated scripts has the proper permissions to write that script in that project…\n\nThis gets complex! Luckily, I can share my documentation for this project. This is an overview of my sections of the project: <a href='https://docs.google.com/document/d/1Jg2w3RCbO0erpQVe62TjDEA4r3SGn9rp1h-n9ZfqA0k/edit?usp=sharing'>Link</a>\n\nAnd more details about the Lua engine: <a href='https://docs.google.com/document/d/1oskfsdsXdO6_W2hqNnOwAO-oHZw6xBlapABsVqbjWQ0/edit?tab=t.0#heading=h.lnl3gae6ezr5'>Link</a>\n\nThis project is open source! <a href='https://github.com/ayarger/timber'>Link</a>\n<img src='https://dqanxy-umich-us2.s3.us-east-2.amazonaws.com/portfolio/timber2.png' caption='Some of S3 infra'/>\nI also feel as if this project grew as I grew as a programmer. I started making small features, but as my confidence grew and I learned more, I started integrating Lua, digging into source code, building a Lua engine and creating cloud infrastructure. Austin if you’re reading this, you are an amazing mentor and I hope this project will come to completion one day!"
         },
         {
             "name": "walbridge",
@@ -134,10 +122,6 @@
         {
             "source": "main",
             "target": "ai"
-        },
-        {
-            "source": "main",
-            "target": "aboutme"
         },
         {
             "source": "data",
