@@ -13,18 +13,18 @@ const renderCustomHtmlText = (textContent) => {
     textContent = textContent.replace(/<p\/>/g, '')
   
     // Parse with a regex for all relevant tags
-    const regex = /<em>(.*?)<\/em>|<strong>(.*?)<\/strong>|<a .*href='([^']+)'[^>]*>(.*?)<\/a>|<StarLink value='([^']+)' text='([^']+)'\/>|<img src='([^']+)' caption='([^']*)'\/>|<SideImage src='([^']+)' useLeft='([^']*)'>(.*?)<\/SideImage>|<([^>]+)>|([^<]+)/gs;
+    const regex = /<em>(.*?)<\/em>|<strong>(.*?)<\/strong>|<a href='([^']+?)'>([^<]*?)<\/a>|<StarLink value='([^']+?)' text='([^']+?)'\/>|<img src='([^']+)' caption='([^']*)'\/>|<SideImage src='([^']+)' useLeft='([^']*)'>(.*?)<\/SideImage>|([^<]+)/gs;
 
     const elements = [];
     let match;
     while ((match = regex.exec(textContent)) !== null) {
-        const [fullMatch, emText, strongText, url, linkText, starLinkValue, starLinkText, imgSrc, imgCaption, sideImageSrc, sideImageLeft, sideImageChildren, otherTag, normalText] = match;
+        const [fullMatch, emText, strongText, url, linkText, starLinkValue, starLinkText, imgSrc, imgCaption, sideImageSrc, sideImageLeft, sideImageChildren, normalText] = match;
         if (emText) {
             elements.push(<em key={elements.length}>{renderCustomHtmlText(emText)}</em>);
         } else if (strongText) {
             elements.push(<strong key={elements.length} style={{"display":"inline"}}>{renderCustomHtmlText(strongText)}</strong>);
         } else if (url && linkText) {
-            elements.push(<a key={elements.length} href={url} style={{ color: 'blue', textDecoration: 'underline' }}>{renderCustomHtmlText(linkText)}</a>);
+            elements.push(<a key={elements.length} href={url} style={{ color: '#8DA8C6', textDecoration: 'underline' }}>{renderCustomHtmlText(linkText)}</a>);
         } else if (starLinkValue && starLinkText) {
             elements.push(<StarLink key={elements.length} value={starLinkValue} text={starLinkText} />);
         } else if (imgSrc) {
