@@ -51,7 +51,15 @@ const Body = ({isVisible, headerText, subtitleText, titleText, bodyText, childre
         setHeaderVisible(isVisible);
         setStarNavVisible(isVisible);
         setBodyVisible(isVisible);
+
+        const timer = setTimeout(() => {
+            setHeaderVisible(true);
+        }, 200);
+
+        return () => clearTimeout(timer);
     }, [bodyText]);
+
+
 
     useEffect(() => {
         const handleScroll = () => {
