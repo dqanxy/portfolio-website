@@ -7,10 +7,10 @@
             "x" : 100,
             "y" : 100,
             "scale" : 1.5,
-            "headerText" : "Header 1",
-            "subtitleText" : "Subtitle 1",
-            "titleText" : "Title 1",
-            "bodyText" : "Description 1"
+            "headerText" : "AI",
+            "subtitleText" : "Everything relating to AI!",
+            "titleText" : "AI Projects",
+            "bodyText" : "I consider myself multidisciplinary, with interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI. \n\nThis section contains a few AI related experiences, including my NLP research and my computer vision project with Walbridge. In the future, I'd like to put more projects relating to my interests in distributed training, model serving, model optimization, and GPU computing."
         },
         {
             "name": "data",
@@ -19,10 +19,10 @@
             "x" : 100,
             "y" : -100,
             "scale" : 1.5,
-            "headerText" : "Header 2",
-            "subtitleText" : "Subtitle 2",
-            "titleText" : "Title 2",
-            "bodyText" : "Description 2"
+            "headerText" : "Data",
+            "subtitleText" : "Everything relating to data!",
+            "titleText" : "Data Projects",
+            "bodyText" : "I consider myself multidisciplinary, with interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI.\n\nThis section is connected to all of my data architecture/infra experiences. Currently it just contains my TikTok internship (which is a lot!), but I'll put other data projects over here later!"
         },
         {
             "name": "fullstack",
@@ -31,10 +31,10 @@
             "x" : -50,
             "y" : 150,
             "scale" : 1.5,
-            "headerText" : "Header 3",
-            "subtitleText" : "Subtitle 3",
-            "titleText" : "Title 3",
-            "bodyText" : "Description 3"
+            "headerText" : "Full Stack",
+            "subtitleText" : "Everything relating to full stack!",
+            "titleText" : "Full Stack Projects",
+            "bodyText" : "I consider myself multidisciplinary, with interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI.\n\nThis section is connected to all of my full stack experiences, including major experiences such as the Timber engine. my Kubica internship, and the ThinkWorkTogether platform in JoinLu. I don't consistently stick to any particular tech stack, but technologies I've used include React, Next.js, Flask, PostgreSQL, AWS S3, and AWS Lambda. I'll add other projects later, including personal projects and hackathons!"
         },
         {
             "name": "aboutme",
@@ -46,7 +46,7 @@
             "headerText" : "Header 4",
             "subtitleText" : "Subtitle 4",
             "titleText" : "Title 4",
-            "bodyText" : "Description 4"
+            "bodyText" : "Todo (as of 5/10/2025)"
         },
         {
             "name": "tiktok",
@@ -55,10 +55,10 @@
             "x" : 200,
             "y" : -150,
             "scale" : 1.25,
-            "headerText" : "Header 5",
-            "subtitleText" : "Subtitle 5",
-            "titleText" : "Title 5",
-            "bodyText" : "WIP! (as of 04/27/2025)"
+            "headerText" : "TikTok Internship",
+            "subtitleText" : "May 2024 - August 2024",
+            "titleText" : "Data Arch at TikTok",
+            "bodyText" : "Over the summer of 2024, I worked on TikTok's recommendation infrastructure as a software engineering intern! My role was to develop distributed data infrastructure with Spark, Hadoop, and Hudi in their lakehouse platform. I also worked on integrating our lakehouse infrastructure with the wider recommendation algorithm, learning how the recommendation algorithm works and making data flows more efficient.\n\nIn my internship, I worked on generating the training samples to train the recommendation system. In scenarios where user actions happen far after the original recommendation, we need a place to store recommendations and batch join them to user actions days or weeks later.\n\nThis simple task gets very expensive once you reach petabyte scale. A traditional distributed relational DBMS would cost huge amounts in storage and compute resources. There is a need to migrate to cheap lake infrastructure and write optimized bespoke query code with Spark to perform join as efficiently as possible. This lake computational infrastructure, “Lake Joiner”, was the framework I improved, used, and maintained at TikTok.\n\nThough, one of my favorite aspects of TikTok is how open the company is. The documentation is quite awful, but generally accessible by anyone. I spent a lot of time reading through the recommendation infrastructure, learning the high level design and diving into many of the models and technologies that make the recommendation system work. My work was simple (relatively), but the knowledge I gained just from reading about systems and talking to people was invaluable, especially as this was my first big tech experience. I have a lot more to say about this… I'll leave that for later."
         },
         {
             "name": "kubica",
@@ -67,10 +67,10 @@
             "x" : -240,
             "y" : 200,
             "scale" : 1.25,
-            "headerText" : "Header 6",
-            "subtitleText" : "Subtitle 6",
-            "titleText" : "Title 6",
-            "bodyText" : "WIP! (as of 04/27/2025)"
+            "headerText" : "Kubica Internship",
+            "subtitleText" : "May 2023 - August 2023",
+            "titleText" : "Full Stack at Kubica",
+            "bodyText" : "My first ever internship was a full-stack internship working on C# .NET applications that interacted with low level controls devices called Programmable Logic Controllers (PLCs). In particular, I worked on their PLC communication package that handles reading and writing proper binary between PLCs and servers, as well as using this package to create a few small applications that users can use to interact with PLCs.\n\nIn particular, I developed applications with Microsoft’s multi-platform MAUI framework, writing Blazor code which I like to think of as traditional Javascript web frameworks but using C# instead of actual Javascript. The UI is still structured with HTML/CSS, but you have lots of very powerful .NET tools to work with for functionality. I also developed an embedded C program to track RFID movement on the reader, using SQLite as a lightweight local database system.\n\nAs my first exposure to <em>real</em> software, I like to believe my life as a software engineer began here. Coding is easy, but documenting your code, communicating your work, working with coworkers, identifying requirements and tasks, managing tests, and handling deployment may not be so easy. Even a local internship is life changing; the amount of learning and work I was able to accomplish made me realize how much potential I had, as well as how much I had yet to learn."
         },
         {
             "name": "joinlu",
@@ -79,10 +79,10 @@
             "x" : -150,
             "y" : 300,
             "scale" : 1.25,
-            "headerText" : "Header 7",
-            "subtitleText" : "Subtitle 7",
-            "titleText" : "Title 7",
-            "bodyText" : "WIP! (as of 04/27/2025)"
+            "headerText" : "JoinLu",
+            "subtitleText" : "November 2024 - April 2025",
+            "titleText" : "The ThinkWorkTogether Platform",
+            "bodyText" : "Over the course of half a year, I built, deployed, and maintained “ThinkWorkTogether”, a Next.js platform to connect clients to experts (<a href='https://www.thinkworktogether.net'>Link</a>). I effectively acted as a solo developer, building up a basic project that previous developers left off while communicating with my supervisor to obtain requirements and show progress.\n\nThe mission of JoinLu is to bridge academia to industry in engineering areas, on an international scale. To do this, they leverage an internal expert network in order to refer experts with specific domain knowledge that matches client requirements. This process of client projects -> request for experts -> connecting to experts in JoinLu’s network -> referring specific experts is the core of the ThinkWorkTogether platform! Along with this are a few tools, such as a chat system, message translation, notifications, automated emails, an interactable expert database, an expert profile PDF generator, and other workplace features that I rolled out over the course of this part-time position. \n\nThis project used Next.js as a unified frontend and backend solution, interacting with a PostgreSQL database. I used AWS S3 for object storage and all deployment was on an EC2 instance. This was a relatively small scale project, having quite low requirements for scalability and performance, but it was still an important experience going from zero to completion on a full-stack project!"
         },
         {
             "name": "timber",
@@ -91,10 +91,10 @@
             "x" : -250,
             "y" : 80,
             "scale" : 1.25,
-            "headerText" : "Header 8",
-            "subtitleText" : "Subtitle 8",
-            "titleText" : "Title 8",
-            "bodyText" : "WIP! (as of 04/27/2025)"
+            "headerText" : "Timber Engine",
+            "subtitleText" : "September 2023 - April 2025",
+            "titleText" : "The Timber Engine",
+            "bodyText" : "For two years, I worked with a team on a web 3D game engine called “Timber”, headed by professor Austin Yarger from the University of Michigan, meant to be a successor to the popular beginner game engine MIT Scratch. MIT Scratch is accessible on the web at <a href='https://scratch.mit.edu/'>https://scratch.mit.edu/</a> and features a drag-and-drop programming language that makes it great as an accessible educational tool to teach beginners how to program. Timber is the next level… maintaining the accessibility of the web but having largely fleshed out capabilities, 3D support, as well as using both a drag-and-drop language and Lua, with the goal being to teach users how to use a real programming language. Start small, but keep going and you can learn to be a real programmer and make a truly complex game!\n\nWe built our game engine off of Godot, a popular open source game engine that handles rendering and is able to compile to the web. Unfortunately, it doesn’t run Lua, and we need it to read and write assets dynamically on the cloud to allow users to create their own projects. This is my job - modify Godot source code to allow Lua interpretation, build the Lua and C# infrastructure to run user code and perform corresponding actions, construct the Lua API, manage AWS authentication, projects, asset CRUD…\n\nDuring this project, I wrote things like Lua code-gen, hot reloading, object lifetime, coroutines, AWS Lambda functions, custom authentication with JWT, and much more. Suppose you have a script that runs on an actor, that says some dialogue when interacted with, then performs an action after some time. Well, you need to run that script as an object associated with an actor, then have the event run as a coroutine that can pause and resume after time passes, and have the coroutine notify the engine when specific actions must be made. And don’t expect the programmer to be smart, the API needs to be <em>as simple as possible</em>. And if the script changes, you need to reload the script without restarting the game… And you also need to upload that updated script to the cloud… And you need to make sure the person uploading the updated scripts has the proper permissions to write that script in that project…\n\nThis gets complex! Luckily, I can share my documentation for this project. This is an overview of my sections of the project: <a href='https://docs.google.com/document/d/1Jg2w3RCbO0erpQVe62TjDEA4r3SGn9rp1h-n9ZfqA0k/edit?usp=sharing'>Link</a>\n\nAnd more details about the Lua engine: <a href='https://docs.google.com/document/d/1oskfsdsXdO6_W2hqNnOwAO-oHZw6xBlapABsVqbjWQ0/edit?tab=t.0#heading=h.lnl3gae6ezr5'>Link</a>\n\nThis project is open source! <a href='https://github.com/ayarger/timber'>Link</a>\n\nI also feel as if this project grew as I grew as a programmer. I started making small features, but as my confidence grew and I learned more, I started integrating Lua, digging into source code, building a Lua engine and creating cloud infrastructure. Austin if you’re reading this, you are an amazing mentor and I hope this project will come to completion one day!"
         },
         {
             "name": "walbridge",
@@ -103,10 +103,10 @@
             "x" : 150,
             "y" : 200,
             "scale" : 1.25,
-            "headerText" : "Header 9",
-            "subtitleText" : "Subtitle 9",
-            "titleText" : "Title 9",
-            "bodyText" : "WIP! (as of 04/27/2025)"
+            "headerText" : "Walbridge Computer Vision",
+            "subtitleText" : "January 2024 - December 2024",
+            "titleText" : "The Proximity Warning Alert System",
+            "bodyText" : "This was a year-long computer vision project where I worked in a team of 5 and developed the Proximity Warning Alert System, a system that can be put on heavy mobile construction equipment such as telehandlers and excavators and detects if hazards, especially humans, are located within operator blind spots to prevent fatal accidents. \n\nIn collaboration with Walbridge, a construction company, and the University of Michigan, we developed and delivered a working prototype, including the assembled hardware consisting of a Nvidia Jetson embedded computing module, Intel RealSense cameras, industrial-grade alert speakers and a monitor, as well as software components such as the YOLOv5 object detection model that we modified and trained on our custom dataset, the UI frontend built with PyQt, and the central PWAS module that manages the cameras, feeds the YOLOv5 model, looks for humans, and interacts with the frontend to draw bounding boxes and send auditory alerts.\n\nI worked on all parts of the project, but in particular managing the hardware, modifying the YOLOv5 model, and building the basic PyQt UI infrastructure that other teammates would flesh out. In particular, I modified the base YOLOv5 model to accept infrared data, digging into the source code to both allow a 4th channel in the model as well as allowing infrared data to be read during both training and inference steps.\n\nThough, this project was more people focused than technical focused. Our sponsors from Walbridge do not have any expertise in software, and requirements from the University of Michigan kept us busy with reports and sponsor communication. The most important part of engineering is to make sure your requirements are aligned with your stakeholders - during this project I learned to communicate with non-technical people and manage a formal engineering project."
         },
         {
             "name": "nlpresearch",
@@ -115,10 +115,10 @@
             "x" : 220,
             "y" : 150,
             "scale" : 1.25,
-            "headerText" : "Header 10",
-            "subtitleText" : "Subtitle 10",
-            "titleText" : "Title 10",
-            "bodyText" : "WIP! (as of 04/27/2025)"
+            "headerText" : "NLP Research",
+            "subtitleText" : "September 2023 - August 2024",
+            "titleText" : "Spatial Understanding in LLMs",
+            "bodyText" : "For around a year, I worked in a natural language processing lab (<a href='https://blablablab.si.umich.edu/'>Link</a>) as an undergraduate researcher studying LLMs. My team focused on probing open-source LLMs to determine their ability to do spatial reasoning. Specifically, we use OPT, Llama, and GPT-2, using PyTorch to perform fine-tuning, inference and probing. \n\nThe process is simple - first we fine tune language models on geospatial tasks, such as navigating between landmarks, identifying directions in reference to various locations, and giving routes. Then, we have a separate dataset that we use just for inference. During inference, we save all of the hidden states of the models, which is effectively the model’s semantic interpretation of the query. \n\nWe train simple classifier or regression models (probes) on each layer of these hidden states, seeing if these probes can answer questions such as the distance between landmarks or what direction one landmark is with respect to another. Comparing these probes that are trained on the hidden states vs models trained on random noise, if the LLM <em>truly learned</em> concepts like direction and distance, then we can expect the probes will have better performance than the random baseline. \n\nThat’s the concept! Though I am not really a researcher, it is extraordinarily valuable to have the experience digging through LLM architecture, using PyTorch, fine-tuning and running LLMs, and in particular getting a strong understanding of how LLMs learn, reason, and operate. My first AI experience, and I’m grateful I was given this opportunity!"
         }
         
     ],
