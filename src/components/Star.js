@@ -106,7 +106,10 @@ class Star {
             context.closePath();
 
             context.fillStyle = `rgba(255, 255, 255, ${this.tooltip_alpha})`; 
-            context.fillText(this.tooltip, displayX + 25, displayY + 35);
+            let tooltipLines = this.tooltip.split('\n');
+            tooltipLines.forEach((line, index) => {
+                context.fillText(line, displayX + 25, displayY + 35 + index * 20);
+            });
         }
 
     }
