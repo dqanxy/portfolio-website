@@ -24,7 +24,7 @@ const renderCustomHtmlText = (textContent) => {
         } else if (strongText) {
             elements.push(<strong key={elements.length} style={{"display":"inline"}}>{renderCustomHtmlText(strongText)}</strong>);
         } else if (url && linkText) {
-            elements.push(<a key={elements.length} href={url}>{renderCustomHtmlText(linkText)}</a>);
+            elements.push(<a key={elements.length} href={url}>{linkText}</a>);
         } else if (starLinkValue && starLinkText) {
             elements.push(<StarLink key={elements.length} value={starLinkValue} text={starLinkText} />);
         } else if (imgSrc) {
