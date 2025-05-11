@@ -54,6 +54,8 @@ const Body = ({isVisible, headerText, subtitleText, titleText, bodyText, childre
 
         const timer = setTimeout(() => {
             setHeaderVisible(true);
+            setStarNavVisible(true);
+            setBodyVisible(true);
         }, 200);
 
         return () => clearTimeout(timer);
