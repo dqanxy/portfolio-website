@@ -37,6 +37,18 @@
             "bodyText" : "I have interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI.\n\nThis section is connected to all of my full stack experiences, including major experiences such as the Timber engine. my Kubica internship, and the ThinkWorkTogether platform in JoinLu. I don't consistently stick to any particular tech stack, but technologies I've used include React, Next.js, Flask, PostgreSQL, AWS S3, and AWS Lambda. I'll add other projects later, including personal projects and hackathons!"
         },
         {
+            "name": "aboutme",
+            "tooltip": "About Me",
+            "parent": "main",
+            "x" : -125,
+            "y" : -100,
+            "scale" : 1.5,
+            "headerText" : "About Me",
+            "subtitleText" : " ",
+            "titleText" : "Who am I?",
+            "bodyText" : "My name is Daniel Tian! I graduated with a combined Bachelor's and Master's degree in Computer Science from the University of Michigan in May 2025. Before that, I was a USAMO qualifier and USACO platinum, and I also spent my early college career working in game development and full-stack figuring out what I wanted to do in life. I have always been a dreamer, where in the future I want to have changed the world, and be someone I can be proud of.\n\nThat future is AI. I strongly believe that we are headed into a world where many of our current jobs will be automated. In fact, today's AI startups are doing exactly that - automated sales, automated law, automated accounting, automated customer service, automated transport, automated service, and much much more. Moving forward, both <em>foundational models</em> and <em>applied AI</em> will become increasingly important in the future's software engineering landscape. \n\nFor now, I hope to gain experience in any way I can, with an emphasis on <em>AI infrastructure</em>. In particular, I have experiences around AI, data, and full-stack, learning the technologies that go into supporting AI models and AI platforms. I hope to be a part of this AI revolution, that is my dream!\n\nHave a project or an opportunity? Feel free to email me at dqanxy6706@gmail.com, or connect with me at <a href='https://www.linkedin.com/in/tian-daniel/'>linkedin.com/in/tian-daniel/</a>!"
+        },
+        {
             "name": "tiktok",
             "tooltip": "TikTok",
             "parent": "data",
@@ -122,6 +134,10 @@
         {
             "source": "main",
             "target": "ai"
+        },
+        {
+            "source": "main",
+            "target": "aboutme"
         },
         {
             "source": "data",
