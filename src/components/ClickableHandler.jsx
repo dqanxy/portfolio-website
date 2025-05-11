@@ -28,6 +28,21 @@ const ClickableHandler = ({ style, children, onClick }) => {
             setClickable(globalState.clickable);
         };
 
+        const handleTouchMove = (event) => {
+            event.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const touch = event.touches[0];
+            globalState.mouse_x = touch.clientX - rect.left;
+            globalState.mouse_y = touch.clientY - rect.top;
+
+            if (globalState.mouse_clicked) {
+                globalState.camera_x = globalState.previous_camera_x + (globalState.mouse_down_x - globalState.mouse_x);
+                globalState.camera_y = globalState.previous_camera_y + (globalState.mouse_down_y - globalState.mouse_y);
+            }
+
+            setClickable(globalState.clickable);
+        };
+
         const handleMouseEnter = (event) => {
             
             event.preventDefault();
@@ -51,20 +66,38 @@ const ClickableHandler = ({ style, children, onClick }) => {
             globalState.previous_camera_y = globalState.camera_y;
         };
 
+        const handleTouchDown = (event) => {
+            event.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const touch = event.touches[0];
+            globalState.mouse_clicked = true;
+            globalState.mouse_down = true;
+
+            globalState.mouse_down_x = touch.clientX - rect.left;
+            globalState.mouse_down_y = touch.clientY - rect.top;
+
+            globalState.previous_camera_x = globalState.camera_x;
+            globalState.previous_camera_y = globalState.camera_y;
+        };
+
         
 
         canvas.addEventListener('mousemove', handleMouseMove);
+        canvas.addEventListener('touchmove', handleTouchMove);
 
         canvas.addEventListener('mouseenter', handleMouseEnter);
         canvas.addEventListener('mouseleave', handleMouseLeave);
+        canvas.addEventListener('touchstart', handleTouchDown);
         
         canvas.addEventListener('mousedown', handleMouseDown);
         
         return () => {
+            canvas.removeEventListener('touchstart', handleTouchDown);
             canvas.removeEventListener('mousedown', handleMouseDown);
             canvas.removeEventListener('mouseenter', handleMouseEnter);
             canvas.removeEventListener('mouseleave', handleMouseLeave);
             canvas.removeEventListener('mousemove', handleMouseMove);
+            canvas.removeEventListener('touchmove', handleTouchMove);
         }
     }, [])
     

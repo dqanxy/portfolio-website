@@ -149,8 +149,10 @@ More to come!
         };
         
         document.addEventListener('mouseup', handleMouseUp);
+        document.addEventListener('touchend', handleMouseUp);
         return () => {
           document.removeEventListener('mouseup', handleMouseUp);
+          document.removeEventListener('touchend', handleMouseUp);
         };
     }, []);
     
@@ -173,14 +175,14 @@ More to come!
         ctx.fillStyle = '#FFFFFF';
 
         if (globalState.loading) ctx.fillText('Loading' + (globalState.frameCount % 60 < 20 ? '.' : (globalState.frameCount % 60 < 40 ? '..' : '...')), 10, 20);
-        // ctx.fillText('Mouse X: ' + (globalState.mouse_x).toString(), 10, 40);
-        // ctx.fillText('Mouse Y: ' + (globalState.mouse_y).toString(), 10, 60);
-        // ctx.fillText('Canvas X: ' + (globalState.canvas_width).toString(), 10, 80);
-        // ctx.fillText('Canvas Y: ' + (globalState.canvas_height).toString(), 10, 100);
-        // ctx.fillText('Camera X: ' + (globalState.camera_x).toString(), 10, 120);
-        // ctx.fillText('Camera Y: ' + (globalState.camera_y).toString(), 10, 140);
-        // ctx.fillText('Mouse Clicked: ' + (globalState.mouse_clicked).toString(), 10, 160);
-        // ctx.fillText('Mouse Down: ' + (globalState.mouse_down).toString(), 10, 180);
+        ctx.fillText('Mouse X: ' + (globalState.mouse_x).toString(), 10, 40);
+        ctx.fillText('Mouse Y: ' + (globalState.mouse_y).toString(), 10, 60);
+        ctx.fillText('Canvas X: ' + (globalState.canvas_width).toString(), 10, 80);
+        ctx.fillText('Canvas Y: ' + (globalState.canvas_height).toString(), 10, 100);
+        ctx.fillText('Camera X: ' + (globalState.camera_x).toString(), 10, 120);
+        ctx.fillText('Camera Y: ' + (globalState.camera_y).toString(), 10, 140);
+        ctx.fillText('Mouse Clicked: ' + (globalState.mouse_clicked).toString(), 10, 160);
+        ctx.fillText('Mouse Down: ' + (globalState.mouse_down).toString(), 10, 180);
 
 
 
