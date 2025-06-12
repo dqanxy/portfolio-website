@@ -8,7 +8,7 @@
             "y" : 100,
             "scale" : 1.5,
             "headerText" : "AI",
-            "subtitleText" : "Everything relating to AI!",
+            "subtitleText" : "",
             "titleText" : "AI Projects",
             "bodyText" : "I have interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI. \n\nThis section contains a few AI related experiences, including my NLP research and my computer vision project with Walbridge. In the future, I'd like to put more projects relating to my interests in distributed training, model serving, model optimization, and GPU computing."
         },
@@ -20,7 +20,7 @@
             "y" : -100,
             "scale" : 1.5,
             "headerText" : "Data",
-            "subtitleText" : "Everything relating to data!",
+            "subtitleText" : "",
             "titleText" : "Data Projects",
             "bodyText" : "I have interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI.\n\nThis section is connected to all of my data architecture/infra experiences. Currently it just contains my TikTok internship, but I'll put other data projects over here later!"
         },
@@ -32,7 +32,7 @@
             "y" : 150,
             "scale" : 1.5,
             "headerText" : "Full Stack",
-            "subtitleText" : "Everything relating to full stack!",
+            "subtitleText" : "",
             "titleText" : "Full Stack Projects",
             "bodyText" : "I have interests and experience in multiple subfields of software engineering. My goal is to become an expert in all things AI infrastructure, and that means being proficient in full-stack, data, and AI.\n\nThis section is connected to all of my full stack experiences, including major experiences such as the Timber engine. my Kubica internship, and the ThinkWorkTogether platform in JoinLu. I don't consistently stick to any particular tech stack, but technologies I've used include React, Next.js, Flask, PostgreSQL, AWS S3, and AWS Lambda. I'll add other projects later, including personal projects and hackathons!"
         },
