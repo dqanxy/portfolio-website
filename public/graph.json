@@ -119,6 +119,20 @@
             "subtitleText" : "September 2023 - August 2024",
             "titleText" : "Spatial Understanding in LLMs",
             "bodyText" : "For around a year, I worked in a natural language processing lab (<a href='https://blablablab.si.umich.edu/'>Link</a>) as an undergraduate researcher studying LLMs. My team focused on probing open-source LLMs to determine their ability to do spatial reasoning. Specifically, we use OPT, Llama, and GPT-2, using PyTorch to perform fine-tuning, inference and probing. \n\nThe process is simple - first we fine tune language models on geospatial tasks, such as navigating between landmarks, identifying directions in reference to various locations, and giving routes. Then, we have a separate dataset that we use just for inference. During inference, we save all of the hidden states of the models, which is effectively the model’s semantic interpretation of the query. \n\nWe train simple classifier or regression models (probes) on each layer of these hidden states, seeing if these probes can answer questions such as the distance between landmarks or what direction one landmark is with respect to another. Comparing these probes that are trained on the hidden states vs models trained on random noise, if the LLM <em>truly learned</em> concepts like direction and distance, then we can expect the probes will have better performance than the random baseline. \n\nThat’s the concept! Though I am not really a researcher, it is extraordinarily valuable to have the experience digging through LLM architecture, using PyTorch, fine-tuning and running LLMs, and in particular getting a strong understanding of how LLMs learn, reason, and operate. My first AI experience, and I’m grateful I was given this opportunity!"
+        },
+        {
+            "name": "AI-DJ",
+            "tooltip": "Your reactions \ndetermine our music!",
+            "parent": "ai",
+            "x" : 220,
+            "y" : 150,
+            "scale" : 1.25,
+            "headerText" : "AI-DJ",
+            "subtitleText" : "MHacks 2024 Intel Track 1st Place",
+            "titleText" : "An AI-powered DJ that plays music based on your reactions!",
+            "bodyText" : "AI-DJ is a hackathon project I built with a team of 4 at MHacks 2024, where we won the Intel Track 1st Place prize. The idea is simple - we use a webcam to detect your facial expressions, and then play music based on your reactions! \n\nOur tech stack was a bit bizarre for this project. We wanted to utilize the Intel AI hardware we were given access to, which rules out using CUDA and training custom models with PyTorch or TensorFlow. We built our model using OpenVINO, a model inference infrastructure that is able to run pre-trained models on Intel hardware. We used a pre-trained facial expression and body pose model on OpenVINO, concantenating their embeddings an running a regression layer to predict qualities of the song it should choose, such as the energy, valence, and danceability. We trained this regression layer by using clips of real DJs, making a dataset video clips to song choice samples. We then used Spotify’s API to search for songs that match these qualities, and play them on a screen.\n\nI built the model! The time and resource constraints meant our dataset was limited, but we could clearly notice that certain features that the model predicted would change consistently based on our expressions. We won 1st place on Intel's AI track, my second ever hackathon! 
+            
+            Link: <a href='https://devpost.com/software/aidj'>https://devpost.com/software/aidj</a>\n\n"
         }
         
     ],
